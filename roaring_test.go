@@ -331,7 +331,7 @@ func TestRoaringInPlaceAndNotBitmapContainer(t *testing.T) {
 	assert.True(t, bm2.Equals(bm))
 }
 
-// https://github.com/RoaringBitmap/roaring/issues/64
+// https://github.com/macheal/roaring/issues/64
 func TestFlip64(t *testing.T) {
 	bm := New()
 	bm.AddInt(0)
@@ -341,7 +341,7 @@ func TestFlip64(t *testing.T) {
 	assert.False(t, i.Next() != 0 || i.Next() != 1 || i.HasNext())
 }
 
-// https://github.com/RoaringBitmap/roaring/issues/64
+// https://github.com/macheal/roaring/issues/64
 func TestFlip64Off(t *testing.T) {
 	bm := New()
 	bm.AddInt(10)

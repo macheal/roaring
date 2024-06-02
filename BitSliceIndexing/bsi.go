@@ -1,4 +1,4 @@
-package roaring
+package bsi
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/RoaringBitmap/roaring"
+	"github.com/macheal/roaring"
 )
 
 const (

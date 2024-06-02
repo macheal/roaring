@@ -12,8 +12,8 @@ import (
 	"io"
 	"strconv"
 
-	"github.com/RoaringBitmap/roaring/internal"
 	"github.com/bits-and-blooms/bitset"
+	"github.com/macheal/roaring/internal"
 )
 
 // Bitmap represents a compressed bitmap where you can add integers.
@@ -43,7 +43,7 @@ func (rb *Bitmap) FromBase64(str string) (int64, error) {
 // WriteTo writes a serialized version of this bitmap to stream.
 // The format is compatible with other RoaringBitmap
 // implementations (Java, C) and is documented here:
-// https://github.com/RoaringBitmap/RoaringFormatSpec
+// https://github.com/macheal/roaringFormatSpec
 func (rb *Bitmap) WriteTo(stream io.Writer) (int64, error) {
 	return rb.highlowcontainer.writeTo(stream)
 }
@@ -284,7 +284,7 @@ func (rb *Bitmap) Checksum() uint64 {
 // when the resulting bitmap can be considered immutable.
 //
 // See also the FromBuffer function.
-// See https://github.com/RoaringBitmap/roaring/pull/395 for more details.
+// See https://github.com/macheal/roaring/pull/395 for more details.
 func (rb *Bitmap) FromUnsafeBytes(data []byte, cookieHeader ...byte) (p int64, err error) {
 	stream := internal.NewByteBuffer(data)
 	return rb.ReadFrom(stream)
@@ -293,7 +293,7 @@ func (rb *Bitmap) FromUnsafeBytes(data []byte, cookieHeader ...byte) (p int64, e
 // ReadFrom reads a serialized version of this bitmap from stream.
 // The format is compatible with other RoaringBitmap
 // implementations (Java, C) and is documented here:
-// https://github.com/RoaringBitmap/RoaringFormatSpec
+// https://github.com/macheal/roaringFormatSpec
 // Since io.Reader is regarded as a stream and cannot be read twice.
 // So add cookieHeader to accept the 4-byte data that has been read in roaring64.ReadFrom.
 // It is not necessary to pass cookieHeader when call roaring.ReadFrom to read the roaring32 data directly.
@@ -316,7 +316,7 @@ func (rb *Bitmap) ReadFrom(reader io.Reader, cookieHeader ...byte) (p int64, err
 // FromBuffer creates a bitmap from its serialized version stored in buffer
 //
 // The format specification is available here:
-// https://github.com/RoaringBitmap/RoaringFormatSpec
+// https://github.com/macheal/roaringFormatSpec
 //
 // The provided byte array (buf) is expected to be a constant.
 // The function makes the best effort attempt not to copy data.
@@ -1729,7 +1729,7 @@ func (rb *Bitmap) RemoveRange(rangeStart, rangeEnd uint64) {
 	if rangeEnd-1 > MaxUint32 {
 		// logically, we should assume that the user wants to
 		// remove all values from rangeStart to infinity
-		// see https://github.com/RoaringBitmap/roaring/issues/141
+		// see https://github.com/macheal/roaring/issues/141
 		rangeEnd = uint64(0x100000000)
 	}
 	hbStart := uint32(highbits(uint32(rangeStart)))

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"runtime"
 
-	"github.com/RoaringBitmap/roaring"
+	"github.com/macheal/roaring"
 )
 
 var defaultWorkerCount = runtime.NumCPU()

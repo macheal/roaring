@@ -115,7 +115,7 @@ func TestRoaringBitmapAddManyCOW(t *testing.T) {
 	assert.EqualValues(t, len(array), bmp.GetCardinality())
 }
 
-// https://github.com/RoaringBitmap/roaring/issues/64
+// https://github.com/macheal/roaring/issues/64
 func TestFlip64COW(t *testing.T) {
 	bm := New()
 	bm.SetCopyOnWrite(true)
@@ -127,7 +127,7 @@ func TestFlip64COW(t *testing.T) {
 	assert.False(t, i.Next() != 0 || i.Next() != 1 || i.HasNext())
 }
 
-// https://github.com/RoaringBitmap/roaring/issues/64
+// https://github.com/macheal/roaring/issues/64
 func TestFlip64OffCOW(t *testing.T) {
 	bm := New()
 	bm.SetCopyOnWrite(true)

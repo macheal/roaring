@@ -1,15 +1,16 @@
-package roaring
+package bsi
 
 import (
 	"fmt"
-	"github.com/RoaringBitmap/roaring"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
 	"io/ioutil"
 	"math/rand"
 	"os"
 	"testing"
 	"time"
+
+	"github.com/macheal/roaring"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestSetAndGet(t *testing.T) {
