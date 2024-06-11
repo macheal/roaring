@@ -307,8 +307,10 @@ func compareValue(e *task, batch []uint32, resultsChan chan *roaring.Bitmap, wg 
 		lt1, lt2, gt1 := false, false, false
 		j := x - 1
 		isNegative := false
-		if e.bsi.BitCount() == 64 {
-			isNegative = e.bsi.bA[j].Contains(cID)
+		if x == 64 {
+			if j < e.bsi.BitCount() {
+				isNegative = e.bsi.bA[j].Contains(cID)
+			}
 			j--
 		}
 		compStartValue := e.valueOrStart
