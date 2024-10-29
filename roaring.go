@@ -49,6 +49,25 @@ func (rb *Bitmap) WriteTo(stream io.Writer) (int64, error) {
 
 // ToBytes returns an array of bytes corresponding to what is written
 // when calling WriteTo
+func (rb *Bitmap) ToContainerBytes() ([]uint16, [][]byte, error) {
+
+	bytes := make([][]byte, len(rb.highlowcontainer.keys))
+	for i, c := range rb.highlowcontainer.containers {
+
+		tmp := NewBitmap()
+		tmp.highlowcontainer.appendContainer(rb.highlowcontainer.keys[i], c, false)
+
+		tmp_b, err := tmp.ToBytes()
+		if err != nil {
+			return nil, nil, err
+		}
+		bytes[i] = tmp_b
+	}
+	return rb.highlowcontainer.keys, bytes, nil
+}
+
+// ToBytes returns an array of bytes corresponding to what is written
+// when calling WriteTo
 func (rb *Bitmap) ToBytes() ([]byte, error) {
 	return rb.highlowcontainer.toBytes()
 }

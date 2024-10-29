@@ -13,6 +13,27 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestToContainerBytes(t *testing.T) {
+	a := NewBitmap()
+	a.Add(1)
+	a.Add(65536)
+	a.Add(65535*10 + 2)
+	a.Add(65535*10 + 3)
+	keys, bytes, err := a.ToContainerBytes()
+	require.NoError(t, err)
+	require.Equal(t, len(keys), 3)
+	require.Equal(t, len(bytes), 3)
+	for i, b := range bytes {
+		tmp_b := NewBitmap()
+		tmp_b.FromBuffer(b)
+		fmt.Printf("%v:%v\n", keys[i], tmp_b.ToArray())
+	}
+	tmp_b, err := a.ToBytes()
+	require.NoError(t, err)
+	b := NewBitmap()
+	b.FromBuffer(tmp_b)
+	fmt.Printf("%v:%v\n", "all", b.ToArray())
+}
 func TestIssue440(t *testing.T) {
 	a := NewBitmap()
 	a.AddMany([]uint32{1, 2, 3})
