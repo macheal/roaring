@@ -437,7 +437,7 @@ func TestArrayContainerResetTo(t *testing.T) {
 
 func TestNextValueArray(t *testing.T) {
 	t.Run("Java Port 1", func(t *testing.T) {
-		// [Example 1]  https://github.com/RoaringBitmap/RoaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/buffer/TestMappeableArrayContainer.java#L495
+		// [Example 1]  https://github.com/macheal/roaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/buffer/TestMappeableArrayContainer.java#L495
 		ac := newArrayContainer()
 		ac.iaddRange(64, 129)
 		assert.Equal(t, 64, ac.nextValue(0))
@@ -449,7 +449,7 @@ func TestNextValueArray(t *testing.T) {
 	})
 
 	t.Run("Java Port 2", func(t *testing.T) {
-		// [Example 2]  https://github.com/RoaringBitmap/RoaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/buffer/TestMappeableArrayContainer.java#L507
+		// [Example 2]  https://github.com/macheal/roaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/buffer/TestMappeableArrayContainer.java#L507
 		ac := newArrayContainer()
 		ac.iaddRange(64, 129)
 		ac.iaddRange(256, 321)
@@ -463,7 +463,7 @@ func TestNextValueArray(t *testing.T) {
 	})
 
 	t.Run("Java Port 3", func(t *testing.T) {
-		// [Example 3]  https://github.com/RoaringBitmap/RoaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/buffer/TestMappeableArrayContainer.java#L525
+		// [Example 3]  https://github.com/macheal/roaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/buffer/TestMappeableArrayContainer.java#L525
 		ac := newArrayContainer()
 		ac.iaddRange(64, 129)
 		ac.iaddRange(200, 501)
@@ -487,7 +487,7 @@ func TestNextValueArray(t *testing.T) {
 
 func TestNextAbsentValueArray(t *testing.T) {
 	t.Run("Java Port 1", func(t *testing.T) {
-		// [Java 1]  https://github.com/RoaringBitmap/RoaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestArrayContainer.java#L850
+		// [Java 1]  https://github.com/macheal/roaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestArrayContainer.java#L850
 		ac := newArrayContainer()
 		ac.iaddRange(64, 129)
 		assert.Equal(t, 0, ac.nextAbsentValue(0))
@@ -499,7 +499,7 @@ func TestNextAbsentValueArray(t *testing.T) {
 	})
 
 	t.Run("Java Port 2", func(t *testing.T) {
-		// [Example 2] https://github.com/RoaringBitmap/RoaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestArrayContainer.java#L861
+		// [Example 2] https://github.com/macheal/roaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestArrayContainer.java#L861
 		ac := newArrayContainer()
 		ac.iaddRange(64, 129)
 		ac.iaddRange(200, 501)
@@ -519,7 +519,7 @@ func TestNextAbsentValueArray(t *testing.T) {
 	})
 
 	t.Run("Java Port 3", func(t *testing.T) {
-		// [Java  3]  https://github.com/RoaringBitmap/RoaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestArrayContainer.java#L878
+		// [Java  3]  https://github.com/macheal/roaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestArrayContainer.java#L878
 		ac := newArrayContainer()
 		for i := 0; i < 1000; i++ {
 			assert.Equal(t, i, ac.nextAbsentValue(uint16(i)))
@@ -529,7 +529,7 @@ func TestNextAbsentValueArray(t *testing.T) {
 
 func TestPreviousValueArray(t *testing.T) {
 	t.Run("Java Port 1", func(t *testing.T) {
-		// [Example 1] https://github.com/RoaringBitmap/RoaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestArrayContainer.java#L721
+		// [Example 1] https://github.com/macheal/roaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestArrayContainer.java#L721
 		ac := newArrayContainer()
 		ac.iaddRange(64, 129)
 		assert.Equal(t, -1, ac.previousValue(0))
@@ -541,7 +541,7 @@ func TestPreviousValueArray(t *testing.T) {
 	})
 
 	t.Run("Java Port 2", func(t *testing.T) {
-		// [Example 2]   https://github.com/RoaringBitmap/RoaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestArrayContainer.java#L733
+		// [Example 2]   https://github.com/macheal/roaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestArrayContainer.java#L733
 		ac := newArrayContainer()
 		ac.iaddRange(64, 129)
 		ac.iaddRange(200, 501)
@@ -561,7 +561,7 @@ func TestPreviousValueArray(t *testing.T) {
 	})
 
 	t.Run("Java Port 3", func(t *testing.T) {
-		// [Example 3] https://github.com/RoaringBitmap/RoaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestArrayContainer.java#L751
+		// [Example 3] https://github.com/macheal/roaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestArrayContainer.java#L751
 		ac := newArrayContainer()
 		ac.iaddRange(64, 129)
 		assert.Equal(t, -1, ac.previousValue(5))
@@ -570,7 +570,7 @@ func TestPreviousValueArray(t *testing.T) {
 
 func TestPreviousAbsentValueArray(t *testing.T) {
 	t.Run("Java Port 1", func(t *testing.T) {
-		// [Example 1] https://github.com/RoaringBitmap/RoaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestArrayContainer.java#L793
+		// [Example 1] https://github.com/macheal/roaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestArrayContainer.java#L793
 		ac := newArrayContainer()
 		ac.iaddRange(64, 129)
 		assert.Equal(t, 0, ac.previousAbsentValue(0))
@@ -582,7 +582,7 @@ func TestPreviousAbsentValueArray(t *testing.T) {
 	})
 
 	t.Run("Java Port 2", func(t *testing.T) {
-		// [Example 2] https://github.com/RoaringBitmap/RoaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestArrayContainer.java#L804
+		// [Example 2] https://github.com/macheal/roaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestArrayContainer.java#L804
 		ac := newArrayContainer()
 		ac.iaddRange(64, 129)
 		ac.iaddRange(200, 500)
@@ -602,7 +602,7 @@ func TestPreviousAbsentValueArray(t *testing.T) {
 	})
 
 	t.Run("Java Port 3", func(t *testing.T) {
-		// [Example 3] https://github.com/RoaringBitmap/RoaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestArrayContainer.java#L821
+		// [Example 3] https://github.com/macheal/roaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestArrayContainer.java#L821
 		ac := newArrayContainer()
 		for i := 0; i < 1000; i++ {
 			assert.Equal(t, i, ac.previousAbsentValue(uint16(i)))

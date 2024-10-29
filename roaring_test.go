@@ -428,7 +428,7 @@ func TestRoaringInPlaceAndNotBitmapContainer(t *testing.T) {
 	assert.True(t, bm2.Equals(bm))
 }
 
-// https://github.com/RoaringBitmap/roaring/issues/64
+// https://github.com/macheal/roaring/issues/64
 func TestFlip64(t *testing.T) {
 	bm := New()
 	bm.AddInt(0)
@@ -438,7 +438,7 @@ func TestFlip64(t *testing.T) {
 	assert.False(t, i.Next() != 0 || i.Next() != 1 || i.HasNext())
 }
 
-// https://github.com/RoaringBitmap/roaring/issues/64
+// https://github.com/macheal/roaring/issues/64
 func TestFlip64Off(t *testing.T) {
 	bm := New()
 	bm.AddInt(10)
@@ -2793,7 +2793,7 @@ func TestBitMapValidation(t *testing.T) {
 }
 
 func TestBitMapValidationFromDeserialization(t *testing.T) {
-	// To understand what is going on here, read https://github.com/RoaringBitmap/RoaringFormatSpec
+	// To understand what is going on here, read https://github.com/macheal/roaringFormatSpec
 	// Maintainers: The loader and corruptor are dependent on one another
 	// The tests expect a certain size, with values at certain location.
 	// The tests are geared toward single byte corruption.
@@ -2889,7 +2889,7 @@ func TestBitMapValidationFromDeserialization(t *testing.T) {
 
 func TestNextAndPreviousValue(t *testing.T) {
 	t.Run("Java Regression1 ", func(t *testing.T) {
-		// [Java1] https://github.com/RoaringBitmap/RoaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestRunContainer.java#L3645
+		// [Java1] https://github.com/macheal/roaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestRunContainer.java#L3645
 		bmp := New()
 		bmp.AddRange(64, 129)
 		assert.Equal(t, int64(64), bmp.NextValue(64))
@@ -2920,7 +2920,7 @@ func TestNextAndPreviousValue(t *testing.T) {
 		assert.Equal(t, int64(63), bmp.PreviousAbsentValue(128))
 	})
 	t.Run("Java Regression2", func(t *testing.T) {
-		// [Java2] https://github.com/RoaringBitmap/RoaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestRunContainer.java#L3655
+		// [Java2] https://github.com/macheal/roaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestRunContainer.java#L3655
 
 		bmp := New()
 		bmp.AddRange(64, 129)
@@ -2972,7 +2972,7 @@ func TestNextAndPreviousValue(t *testing.T) {
 	})
 
 	t.Run("Java Regression3", func(t *testing.T) {
-		// [Java3] https://github.com/RoaringBitmap/RoaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestRunContainer.java#L3666
+		// [Java3] https://github.com/macheal/roaringBitmap/blob/5235aa62c32fa3bf7fae40a562e3edc75f61be4e/RoaringBitmap/src/test/java/org/roaringbitmap/TestRunContainer.java#L3666
 
 		bmp := New()
 		bmp.AddRange(64, 129)

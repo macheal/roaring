@@ -138,7 +138,7 @@ func TestFrozenFormat(t *testing.T) {
 }
 
 func TestBitMapValidationFromFrozen(t *testing.T) {
-	// To understand what is going on here, read https://github.com/RoaringBitmap/RoaringFormatSpec
+	// To understand what is going on here, read https://github.com/macheal/roaringFormatSpec
 	// Maintainers: The loader and corruptor are dependent on one another
 	// The tests expect a certain size, with values at certain location.
 	// The tests are geared toward single byte corruption.
